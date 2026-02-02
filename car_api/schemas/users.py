@@ -1,3 +1,4 @@
+from typing import Optional, List
 from pydantic import BaseModel, EmailStr
 
 class UserSchema(BaseModel):
@@ -10,3 +11,10 @@ class UserPublicSchema(BaseModel):
     username: str
     email: EmailStr
 
+class userLoginSchema(BaseModel):
+    username: Optional[str] = None
+    email: Optional[EmailStr] = None
+    password: Optional[str] = None
+
+class UserListPublicSchema(BaseModel):
+    users: List[UserPublicSchema]
